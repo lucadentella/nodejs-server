@@ -6,7 +6,7 @@ const port = 8080;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World 1.0.1');
+  res.end('Hello World, cluster: ' + process.env.CLUSTER_NAME);
 });
 
 server.listen(port, hostname, () => {
