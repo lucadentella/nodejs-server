@@ -6,6 +6,7 @@ const port = 8080;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
+  if(process.env.BANNER !== undefined) res.write(process.env.BANNER + "\n\n");
   res.write('Hello World, cluster: ' + process.env.CLUSTER_NAME + "\n");
   if(process.env.PRINT_HEADERS == 'true') {
 	res.write("\nREQUEST HEADERS:\n");
